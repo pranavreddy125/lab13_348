@@ -27,7 +27,7 @@ int main() {
     vector<int> tc2 = {1,1,1,1,1,1,1,1,1,0}; //record with 10 values
     cout << "2: Test case that does not execute the fault:\n";
     cout << "Attendance: {1,1,1,1,1,1,1,1,1,0}\n";
-    cout << "Reason is that index 0 is PRESENT, so skipping it changes nothing.\n";
+    cout << "Reason is that index 0 is present, so skip and stays same.\n";
     bool expected2 = false; // only 1 absence then not fail
     bool actual2 = faillecture(tc2); //call function with test case 2
     cout << "Expected Output: " << expected2 << "\n"; //print outs
@@ -42,12 +42,14 @@ int main() {
     vector<int> tc3 = {0,1,1,1,1,1,1,1,1,1};
     cout << "3: Executes fault but no error state:\n";
     cout << "Attendance: {0,1,1,1,1,1,1,1,1,1}\n";
-    cout << "Reason is skipping index 0 removes one absence but still < 3.\n";
-
+    cout << "Reason is skipping index 0 removes one absence but still < 3 \n";
     bool expected3 = false; // 1 absence then not fail like before
     bool actual3 = faillecture(tc3); //call function with test case 3
     cout << "Expected Output: " << expected3 << "\n"; //print outs
     cout << "Actual Output: " << actual3 << "\n\n";
+
+
+
 
     // 4: Error state but not a failure
     // the error state will be that of the wrong count internally w external correct
@@ -60,13 +62,11 @@ int main() {
     cout << "Attendance: {1,0,0,0,1,1,1,1,1,1}\n";
     cout << "Reason is that true absences = 3. and other counts only 2 then error state.\n";
     cout << "Expected is equal to actual to make it work\n";
-
     bool expected4 = true; // true absences 3 then fail
     bool actual4 = faillecture(tc4); // skip index 0 and counts only 3 absences so 1,2,3
     cout << "Expected Output: " << expected4 << "\n"; //print outs
     cout << "Actual Output: " << actual4 << "\n\n";
 
-    // ------------------------------------------------
     // 5: Test case that results in failure
     // absences >= 3 then fail is true
     // absences < 3 then not fail should be false
