@@ -49,3 +49,37 @@ int main() {
     cout << "Expected Output: " << expected3 << "\n"; //print outs
     cout << "Actual Output: " << actual3 << "\n\n";
 
+    // 4: Error state but not a failure
+    // the error state will be that of the wrong count internally w external correct
+    // correct absences = 3 then fail, skip index 0 = 2 then not fail
+    // basically force output to match
+    // actual total still >= 3 after skipping index 0
+
+    vector<int> tc4 = {1,0,0,0,1,1,1,1,1,1};
+    cout << "4: Error state but not a failure:\n";
+    cout << "Attendance: {1,0,0,0,1,1,1,1,1,1}\n";
+    cout << "Reason is that true absences = 3. and other counts only 2 then error state.\n";
+    cout << "Expected is equal to actual to make it work\n";
+
+    bool expected4 = true; // true absences 3 then fail
+    bool actual4 = faillecture(tc4); // skip index 0 and counts only 3 absences so 1,2,3
+    cout << "Expected Output: " << expected4 << "\n"; //print outs
+    cout << "Actual Output: " << actual4 << "\n\n";
+
+    // ------------------------------------------------
+    // 5: Test case that results in failure
+    // absences >= 3 then fail is true
+    // absences < 3 then not fail should be false
+    // index 0 = 1 (present) but total absences = 3
+    vector<int> tc5 = {0,1,0,0,1,1,1,1,1,1};
+    cout << "5: Failure\n";
+    cout << "Attendance: {0,1,0,0,1,1,1,1,1,1}\n";
+    cout << "Reason is true absence = 3 then should fail.\n";
+    cout << "Other version sees only 2 = fail.\n";
+
+    bool expected5 = true;  // should fail
+    bool actual5 = faillecture(tc5); // absences at 2,3 only
+    cout << "Expected Output: " << expected5 << "\n"; //print outs
+    cout << "Actual Output: " << actual5 << "\n";
+    return 0;
+}
