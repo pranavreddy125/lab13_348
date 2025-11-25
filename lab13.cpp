@@ -21,7 +21,7 @@ int main() {
     cout << "1. There is a problem in the program, the loop starts at index 1 instead of 0. so the fix would be i=0\n";
 
     // 2: Test case that does not execute the fault
-    // requirement: skipping index 0 should NOT matter.
+    // requirement: skipping index 0 does not change outcome
     // basically make index 0 = 1 (present), and put absence elsewhere
 
     vector<int> tc2 = {1,1,1,1,1,1,1,1,1,0}; //record with 10 values
