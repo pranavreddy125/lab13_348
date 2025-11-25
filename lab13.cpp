@@ -32,3 +32,20 @@ int main() {
     bool actual2 = faillecture(tc2); //call function with test case 2
     cout << "Expected Output: " << expected2 << "\n"; //print outs
     cout << "Actual Output: " << actual2 << "\n\n";
+
+
+
+    // 3: Executes the fault but not error state
+    // skipping i=0 still produces a good ans
+    // Example: index 0 absent, but total absences still < 3
+
+    vector<int> tc3 = {0,1,1,1,1,1,1,1,1,1};
+    cout << "3: Executes fault but no error state:\n";
+    cout << "Attendance: {0,1,1,1,1,1,1,1,1,1}\n";
+    cout << "Reason is skipping index 0 removes one absence but still < 3.\n";
+
+    bool expected3 = false; // 1 absence then not fail like before
+    bool actual3 = faillecture(tc3); //call function with test case 3
+    cout << "Expected Output: " << expected3 << "\n"; //print outs
+    cout << "Actual Output: " << actual3 << "\n\n";
+
